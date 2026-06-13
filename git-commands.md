@@ -345,4 +345,278 @@ git merge upstream/main
 Updates fork with latest changes from original repository.
 
 ```
+## Advanced Git Operations (Day 24)
+
+### Merge Branch
+
+```bash
+git merge feature-login
+```
+
+Merges a branch into the current branch.
+
+---
+
+### Squash Merge
+
+```bash
+git merge --squash feature-profile
+```
+
+Combines all commits from a branch into a single commit before merging.
+
+---
+
+### Abort Merge
+
+```bash
+git merge --abort
+```
+
+Cancels an ongoing merge operation.
+
+---
+
+## Rebase
+
+### Rebase Current Branch
+
+```bash
+git rebase main
+```
+
+Moves current branch commits on top of another branch.
+
+---
+
+### Continue Rebase
+
+```bash
+git rebase --continue
+```
+
+Continues rebase after conflict resolution.
+
+---
+
+### Abort Rebase
+
+```bash
+git rebase --abort
+```
+
+Cancels the rebase operation.
+
+---
+
+## Visualizing Git History
+
+### Graph View
+
+```bash
+git log --oneline --graph --all
+```
+
+Displays commit history along with branch structure.
+
+Example:
+
+```text
+* a1b2c3 Feature Commit
+|\
+| * d4e5f6 Main Commit
+|/
+* f7g8h9 Initial Commit
+```
+
+---
+
+## Git Stash
+
+### Save Current Work
+
+```bash
+git stash
+```
+
+Temporarily saves uncommitted changes.
+
+---
+
+### Stash With Message
+
+```bash
+git stash push -m "work in progress"
+```
+
+Creates a named stash entry.
+
+---
+
+### View Stashes
+
+```bash
+git stash list
+```
+
+Lists all saved stashes.
+
+---
+
+### Apply Latest Stash
+
+```bash
+git stash apply
+```
+
+Restores latest stash but keeps it in stash history.
+
+---
+
+### Apply and Remove Stash
+
+```bash
+git stash pop
+```
+
+Restores latest stash and removes it from stash history.
+
+---
+
+### Apply Specific Stash
+
+```bash
+git stash apply stash@{1}
+```
+
+Applies a selected stash.
+
+---
+
+### Delete Specific Stash
+
+```bash
+git stash drop stash@{0}
+```
+
+Deletes a specific stash.
+
+---
+
+### Remove All Stashes
+
+```bash
+git stash clear
+```
+
+Deletes all saved stashes.
+
+---
+
+## Cherry Pick
+
+### Apply Specific Commit
+
+```bash
+git cherry-pick <commit-hash>
+```
+
+Copies a specific commit from another branch.
+
+Example:
+
+```bash
+git cherry-pick d4e5f6
+```
+
+---
+
+### Continue Cherry Pick
+
+```bash
+git cherry-pick --continue
+```
+
+Continues cherry-pick after resolving conflicts.
+
+---
+
+### Abort Cherry Pick
+
+```bash
+git cherry-pick --abort
+```
+
+Cancels cherry-pick operation.
+
+---
+
+## Conflict Resolution
+
+### Check Conflicted Files
+
+```bash
+git status
+```
+
+Shows files that require conflict resolution.
+
+---
+
+### Conflict Markers
+
+```text
+<<<<<<< HEAD
+Current Branch Changes
+=======
+Incoming Branch Changes
+>>>>>>> feature-branch
+```
+
+Git inserts these markers when the same lines are modified in different branches.
+
+---
+
+## Branch Information
+
+### Show Current Branch
+
+```bash
+git branch --show-current
+```
+
+Displays active branch name.
+
+---
+
+### Show All References
+
+```bash
+git log --oneline --decorate --all
+```
+
+Displays commits across all branches with references.
+
+---
+
+## Cleanup Commands
+
+### Delete Remote Branch
+
+```bash
+git push origin --delete feature-1
+```
+
+Deletes a branch from GitHub.
+
+---
+
+### Remove Stale Remote References
+
+```bash
+git fetch --prune
+```
+
+Removes references to deleted remote branches.
+
 ```
